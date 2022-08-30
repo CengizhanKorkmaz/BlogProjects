@@ -12,7 +12,7 @@ namespace EntityLayer.Concretes
     public class Blog:BaseEntity,IEntity
     {
         public string Title { get; set; }
-        public string Content { get; set; }
+        public string Description { get; set; }
         public string ThumbnailImage { get; set; }
         public string Image { get; set;}
         public int CategoryId { get; set; }
