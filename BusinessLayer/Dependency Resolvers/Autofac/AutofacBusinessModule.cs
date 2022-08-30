@@ -33,6 +33,9 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<EfWriterDal>().As<IWriterDal>().SingleInstance();
             builder.RegisterType<WriterManager>().As<IWriterService>().SingleInstance();
 
+            builder.RegisterType<EfNewsLetterDal>().As<INewsLetterDal>().SingleInstance();
+            builder.RegisterType<NewsLetterManager>().As<INewsLetterService>().SingleInstance();
+
 
 
 

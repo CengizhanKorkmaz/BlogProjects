@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstracts
 {
     public interface IBlogService:IRepositoryService<Blog>
     {
+        List<Blog> GetListWithCategoryAndWriter();
+        Blog GetListWithCategoryAndWriterById(int id);
     }
 }

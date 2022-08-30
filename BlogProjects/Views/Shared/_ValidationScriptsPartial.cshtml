@@ -1,2 +1,24 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<!-- //js -->
+<!--/ start-smoth-scrolling -->
+<script src="~/web/js/move-top.js"></script>
+<script src="~/web/js/easing.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+            event.preventDefault();
+            $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                },
+                900);
+        });
+    });
+</script>
+<!--// end-smoth-scrolling -->
+
+<a href="#home" class="scroll" id="toTop" style="display: block;">
+    <span id="toTopHover" style="opacity: 1;"> </span>
+</a>

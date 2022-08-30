@@ -10,5 +10,7 @@ namespace DataAccessLayer.Abstracts
 {
     public interface IBlogDal:IRepositoryDal<Blog>
     {
+        List<Blog> GetListWithCategoryAndWriter();
+        Blog GetListWithCategoryAndWriterById(int id);
     }
 }
