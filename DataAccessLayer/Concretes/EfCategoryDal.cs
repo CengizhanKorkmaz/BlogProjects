@@ -10,7 +10,7 @@ using EntityLayer.Concretes;
 
 namespace DataAccessLayer.Concretes
 {
-    internal class EfCategoryDal:EfRepositoryBase<Category,Context>,ICategoryDal
+    public class EfCategoryDal:EfRepositoryBase<Category,Context>,ICategoryDal
     {
     }
 }
