@@ -1,39 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx">
 <!--Head-->
-@{
-    await Html.RenderPartialAsync("LayoutPartials/_Head");
-}
+@await Html.PartialAsync("LayoutPartials/_Head");
+
 <!--Head-->
 <body>
-<!--Header-->
-@{
-    await Html.RenderPartialAsync("LayoutPartials/_Header");
-}
+    <!--Header-->
+    @await Html.PartialAsync("LayoutPartials/_Header");
 
-<!--//header-->
-<div class="banner-inner"></div>
-<!--/main-->
-<section class="main-content-w3layouts-agileits">
-    <div class="container">
-        <h3 class="tittle">Blog Yazıları</h3>
-        <div class="row inner-sec">
-            @RenderBody()
 
-            @{
-                await Html.RenderPartialAsync("LayoutPartials/_RightBody");
-            }
+    <!--//header-->
+    <div class="banner-inner"></div>
+    <!--/main-->
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <h3 class="tittle">Blog Yazıları</h3>
+            <div class="row inner-sec">
+                @RenderBody()
+
+
+
+                @await Html.PartialAsync("LayoutPartials/_RightBody");
+
+            </div>
         </div>
-    </div>
-</section>
-<!--//main-->
-<!--footer-->
-@{
-    await Html.RenderPartialAsync("LayoutPartials/_Footer");
-}
-@{
-    await Html.RenderPartialAsync("LayoutPartials/_Scripts");
-}
+    </section>
+    <!--//main-->
+    <!--footer-->
+    @await Html.PartialAsync("LayoutPartials/_Footer");
+
+
+    @await Html.PartialAsync("LayoutPartials/_Scripts");
+
 
 </body>
 

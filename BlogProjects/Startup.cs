@@ -23,6 +23,9 @@ namespace BlogProjects
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddCors(options =>
+                options.AddDefaultPolicy(builder =>
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,9 +39,13 @@ namespace BlogProjects
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+     
+
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
