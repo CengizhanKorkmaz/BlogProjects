@@ -39,7 +39,8 @@ namespace BlogProjects
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-     
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/ErrorOne/","?code={0}");
 
             app.UseStaticFiles();
 

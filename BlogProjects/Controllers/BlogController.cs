@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstracts;
+﻿using System.Linq;
+using BusinessLayer.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProjects.Controllers
@@ -22,7 +23,11 @@ namespace BlogProjects.Controllers
         public IActionResult BlogDetails(int id)
         {
             var result = _blogService.GetListWithCategoryAndWriterById(id);
+            ViewBag.Id = id;
+            ViewBag.Flap = 1;
+            ViewBag.WriterId = result.WriterId;
             return View(result);
         }
+       
     }
 }

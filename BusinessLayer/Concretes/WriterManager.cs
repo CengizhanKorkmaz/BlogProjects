@@ -31,6 +31,10 @@ namespace BusinessLayer.Concretes
 
         public void Add(Writer entity)
         {
+            entity.CreatedTime = DateTime.Now;
+            entity.Status = true;
+            entity.Image = "bos";
+            entity.About = "bos";
             _writerDal.Add(entity);
         }
 

@@ -1,0 +1,16 @@
+﻿@using EntityLayer.Concretes
+@model List<SocialMedia>
+<div class="tech-btm widget_social">
+    <h4> Sosyal Medya Hesaplarımız</h4>
+    <ul>
+        @foreach (var socialMedia in Model)
+        {
+            <li>
+                <a class="@socialMedia.ClassName" href="#">
+                    <i class="@socialMedia.Icon"></i>
+                    <span class="count">@socialMedia.Count</span> @socialMedia.Name</a>
+            </li>
+        }
+
+    </ul>
+</div>

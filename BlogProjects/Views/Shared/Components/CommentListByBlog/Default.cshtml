@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concretes
+@model List<Comment>
+<div class="comment-top">
+    <h4>Yorumlar</h4>
+    @foreach (var comment in Model)
+    {
+        <div class="media">
+            <div class="media-body">
+                <h5 class="mt-0">@comment.UserName</h5>
+                <p>
+                    @comment.Description
+                </p>
+
+
+            </div>
+        </div>
+    }
+</div>

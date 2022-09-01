@@ -10,6 +10,7 @@ namespace EntityLayer.Concretes
 {
     public class About:BaseEntity,IEntity
     {
+        public string Title { get; set; }
         public string DetailsOne { get; set; }
         public string DetailsTwo { get; set; }
         public string ImageOne { get; set; }

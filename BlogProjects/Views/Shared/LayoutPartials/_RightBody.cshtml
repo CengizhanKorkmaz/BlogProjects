@@ -12,7 +12,13 @@
         <!--Last Blog-->
         @await Component.InvokeAsync("BlogLastThreePost")
         <!--Last Blog-->
-
+        @{
+            if (ViewBag.Flap==1)
+            {
+                @await Component.InvokeAsync("BlogListByWriter",ViewBag.WriterId)
+                
+            }
+        }
     </div>
 </aside>
 <!--//right-->

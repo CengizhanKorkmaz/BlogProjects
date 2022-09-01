@@ -36,6 +36,9 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<EfNewsLetterDal>().As<INewsLetterDal>().SingleInstance();
             builder.RegisterType<NewsLetterManager>().As<INewsLetterService>().SingleInstance();
 
+            builder.RegisterType<EfSocialMediaDal>().As<ISocialMediaDal>().SingleInstance();
+            builder.RegisterType<SocialMediaManager>().As<ISocialMediaService>().SingleInstance();
+
 
 
 

@@ -28,5 +28,18 @@ namespace BlogProjects.Controllers
             _letterService.Add(newsLetter);
             return PartialView();
         }
+        [HttpGet]
+        public IActionResult FooterSubscribeMail()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public IActionResult FooterSubscribeMail(NewsLetter newsLetter)
+        {
+            newsLetter.Status = true;
+            newsLetter.CreatedTime = DateTime.Now;
+            _letterService.Add(newsLetter);
+            return PartialView();
+        }
     }
 }
