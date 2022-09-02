@@ -30,5 +30,14 @@ namespace DataAccessLayer.Concretes
                 return result;
             }
         }
+
+        public List<Blog> GetListByCategoryId(int id)
+        {
+            using (var context=new Context())
+            {
+                var result = context.Blogs.Include(x => x.Category).Include(x => x.Writer).Where(x => x.CategoryId == id).ToList();
+                return result;
+            }
+        }
     }
 }

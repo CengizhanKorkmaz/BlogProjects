@@ -16,14 +16,12 @@
 
 
 <script>  
-    $(document).ready(function () {
+   
         $("#btnSubmit").click(function() {
             let values = { Email: $("#txtEmail").val()};
             $.ajax({
                 type: "post",
-                dataType:"json",
                 url: "/NewsLetter/SubscribeMail/",
-                contentType: 'application/json; charset=utf-8',
                 data: values,
                 success: function(response) {
                     let result = jQuery.parseJSON(response);
@@ -32,7 +30,6 @@
             });
         });
         
-    });
-    
+ 
 </script>  
 

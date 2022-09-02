@@ -1,7 +1,7 @@
 ﻿<div class="comment-top">
     <h4>Yorum Yap</h4>
     <div class="comment-bottom">
-        <form action="#" method="post">
+        <form method="post">
             <input class="form-control" type="text" id="UserName" name="UserName" placeholder="İsim giriniz" required="">
             <input class="form-control" type="email" id="Email" name="Email" placeholder="Email giriniz" required="">
             <textarea class="form-control" id="Description" name="Description" placeholder="Message..." required=""></textarea>
@@ -23,7 +23,6 @@
         }
         $.ajax({
             type: "post",
-            dataType: "json",
             url: "/Comment/AddComment/",
             data: values,
             success: function(func) {

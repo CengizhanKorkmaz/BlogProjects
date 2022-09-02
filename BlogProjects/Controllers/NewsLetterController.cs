@@ -29,7 +29,7 @@ namespace BlogProjects.Controllers
             return PartialView();
         }
         [HttpGet]
-        public IActionResult FooterSubscribeMail()
+        public PartialViewResult FooterSubscribeMail()
         {
             return PartialView();
         }

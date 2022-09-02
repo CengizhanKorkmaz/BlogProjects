@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstracts
     {
         List<Blog> GetListWithCategoryAndWriter();
         Blog GetListWithCategoryAndWriterById(int id);
+        List<Blog> GetListByCategoryId(int id);
     }
 }

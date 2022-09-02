@@ -15,14 +15,12 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
+   
         $("#btn").click(function() {
             let values = { Email: $("#Email").val()};
             $.ajax({
                 type: "post",
-                dataType: "json",
                 url: "/NewsLetter/FooterSubscribeMail/",
-                contentType: 'application/json; charset=utf-8',
                 data: values,
                 success: function(func) {
                     let result = jQuery.parseJSON(func);
@@ -31,5 +29,5 @@
             });
         });
 
-    });
+   
 </script>

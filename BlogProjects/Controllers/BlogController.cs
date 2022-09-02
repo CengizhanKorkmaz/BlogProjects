@@ -28,6 +28,12 @@ namespace BlogProjects.Controllers
             ViewBag.WriterId = result.WriterId;
             return View(result);
         }
-       
+
+        public IActionResult BlogListByCategoryId(int id)
+        {
+            var result= _blogService.GetListByCategoryId(id);
+            return View(result);
+        }
+
     }
 }

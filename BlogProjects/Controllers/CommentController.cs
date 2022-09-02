@@ -15,7 +15,7 @@ namespace BlogProjects.Controllers
         }
       
         [HttpGet]
-        public IActionResult AddComment()
+        public PartialViewResult AddComment()
         {
             return PartialView();
         }
