@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using BusinessLayer.Abstracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProjects.Controllers
 {
+    [Authorize]
     public class BlogController : Controller
     {
         private IBlogService _blogService;
@@ -12,6 +14,7 @@ namespace BlogProjects.Controllers
         {
             _blogService = blogService;
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {

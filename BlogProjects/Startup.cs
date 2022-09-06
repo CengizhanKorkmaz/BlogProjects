@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
@@ -29,6 +30,10 @@ namespace BlogProjects
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+            services.AddAuthentication(
+                CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x=>x.LoginPath="/Auth/Login");
+            
             services.AddControllersWithViews();
             services.AddCors(options =>
                 options.AddDefaultPolicy(builder =>
@@ -50,7 +55,7 @@ namespace BlogProjects
             app.UseStatusCodePagesWithReExecute("/ErrorPage/ErrorOne/","?code={0}");
 
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseCors();

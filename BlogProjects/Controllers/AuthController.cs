@@ -1,19 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using BusinessLayer.Abstracts;
 using BusinessLayer.FluenValidationRules;
 using EntityLayer.Concretes;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProjects.Controllers
 {
+    [AllowAnonymous]
     public class AuthController : Controller
     {
         private IWriterService _writerService;
+        private ILoginService _loginService;
 
-        public AuthController(IWriterService writerService)
+        public AuthController(IWriterService writerService,ILoginService loginService)
         {
             _writerService = writerService;
+            _loginService = loginService;
         }
+        
         [HttpGet]
         public IActionResult Login()
         {
@@ -21,8 +30,20 @@ namespace BlogProjects.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Writer writer)
+        public IActionResult Login(string email,string password)
         {
+            var result = _loginService.Login(email, password);
+            if (result!=null)
+            {
+                var claims = new List<Claim>{
+                    new Claim(ClaimTypes.Name, email),
+                };
+                var userIdentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                HttpContext.SignInAsync(principal);
+                return RedirectToAction("Index", "Blog");
+            }
             return View();
         }
         [HttpGet]

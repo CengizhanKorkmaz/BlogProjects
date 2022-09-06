@@ -39,6 +39,8 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<EfSocialMediaDal>().As<ISocialMediaDal>().SingleInstance();
             builder.RegisterType<SocialMediaManager>().As<ISocialMediaService>().SingleInstance();
 
+            builder.RegisterType<LoginManager>().As<ILoginService>().SingleInstance();
+
 
 
 

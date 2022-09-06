@@ -9,18 +9,22 @@
         <h3 class="tittle">Oturum Açın</h3>
         <div class="row inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-                <form method="post">
+
+                @using(Html.BeginForm("Login", "Auth", FormMethod.Post)){
+                <div class="form-group">
+                    <label for="validationCustom01">Mail</label>
+                    @Html.TextBoxFor(w => w.Mail, new { @class = "form-control", @placeholder="Mail adresiniz giriniz..."})
+                    @Html.ValidationMessageFor(w => w.Mail, "", new { @style = "color:red" })
+                </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1 mb-2">Kullanıcı Adı</label>
-                        <input type="text" class="form-control" asp-for="@Model.Mail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                        <label for="validationCustom01">Şifre</label>
+                        @Html.PasswordFor(w => w.Password, new { @class = "form-control", @placeholder = "Şifrenizi giriniz ..." })
+                        @Html.ValidationMessageFor(w => w.Password, "", new { @style = "color:red" })
+
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1 mb-2">Şifre</label>
-                        <input type="password" class="form-control" asp-for="@Model.Password" id="exampleInputPassword1" placeholder="" required="">
-                    </div>
-                    <button type="submit" class="btn btn-primary submit mb-4">Giriş Yap</button>
-                    <p><a href="/Auth/Register/"> Bir Hesabınız Yokmu? Tıklayın.</a></p>
-                </form>
+                <button type="submit" class="btn btn-primary submit mb-4">Giriş Yap</button>
+                <p><a href="/Auth/Register/"> Bir Hesabınız Yokmu? Tıklayın.</a></p>
+                }
             </div>
         </div>
     </div>
